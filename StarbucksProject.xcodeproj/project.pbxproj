@@ -21,6 +21,7 @@
 		9EB7AF112AF36DD400516600 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		9EB7AF142AF36DD400516600 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		9EB7AF1B2AF36DF200516600 /* starbucksData.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = starbucksData.json; sourceTree = "<group>"; };
+		9EB7AF1D2AF371AC00516600 /* ReadME.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = ReadME.md; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +59,7 @@
 				9EB7AF1B2AF36DF200516600 /* starbucksData.json */,
 				9EB7AF112AF36DD400516600 /* Assets.xcassets */,
 				9EB7AF132AF36DD400516600 /* Preview Content */,
+				9EB7AF1D2AF371AC00516600 /* ReadME.md */,
 			);
 			path = StarbucksProject;
 			sourceTree = "<group>";
