@@ -19,6 +19,8 @@ struct ContentView: View {
                         ListCell(beverage: beverageStore.beverages[index])
                     }
                 }
+                .onMove(perform: moveItems)
+                .onDelete(perform: deleteItems)
             }
             .navigationDestination(for: Int.self) { index in
                 BeverageDetailView(selectedBeverage: beverageStore.beverages[index])
@@ -38,6 +40,14 @@ struct ContentView: View {
                 }
             }
         }
+    }
+    
+    func deleteItems(at offsets: IndexSet) {
+        beverageStore.beverages.remove(atOffsets: offsets)
+    }
+    
+    func moveItems(from source: IndexSet, to destination: Int) {
+        beverageStore.beverages.move(fromOffsets: source, toOffset: destination)
     }
 }
 
