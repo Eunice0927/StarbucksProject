@@ -9,12 +9,20 @@ import SwiftUI
 
 // 사용자 인테페이스 콘텐트 뷰 설계
 struct ContentView: View {
-   @StateObject var beverageStore = BeverageStore(beverages: beverageData)
-
+    @StateObject var beverageStore = BeverageStore(beverages: beverageData)
+    
     var body: some View {
-        List {
-            ForEach (0..<beverageStore.beverages.count, id: \.self) { i in
-                ListCell(beverage: beverageStore.beverages[i])
+        
+        NavigationStack {
+            List {
+                ForEach (0..<beverageStore.beverages.count, id: \.self) { index in
+                    NavigationLink(value: index) {
+                        ListCell(beverage: beverageStore.beverages[index])
+                    }
+                }
+            }
+            .navigationDestination(for: Int.self) { index in
+                BeverageDetailView(selectedBeverage: beverageStore.beverages[index])
             }
         }
     }
@@ -23,17 +31,17 @@ struct ContentView: View {
 // JSON 파일을 로드하는 표준 방식, 이후 앱에서도 사용이 가능
 func loadJson<T: Decodable>(_ filename: String) -> T {
     let data: Data
-
+    
     guard let file = Bundle.main.url(forResource: filename, withExtension: nil) else {
         fatalError("\(filename) not found.")
     }
-
+    
     do {
         data = try Data(contentsOf: file)
     } catch {
         fatalError("Could not load \(filename): \(error)")
     }
-
+    
     do {
         return try JSONDecoder().decode(T.self, from: data)
     } catch {
@@ -45,17 +53,16 @@ var beverageData: [Beverage] = loadJson("starbucksData.json")
 
 class BeverageStore : ObservableObject {
     @Published var beverages: [Beverage]
-
+    
     init(beverages: [Beverage] = []) {
         self.beverages = beverages
     }
 }
 
-
 // 하위 뷰로 추출
 struct ListCell: View {
     var beverage: Beverage
-
+    
     var body: some View {
         HStack {
             Image(beverage.imageName)
@@ -66,7 +73,6 @@ struct ListCell: View {
         }
     }
 }
-
 
 struct Beverage: Codable, Identifiable {
     var id: String

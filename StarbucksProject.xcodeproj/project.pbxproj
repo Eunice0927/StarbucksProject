@@ -12,6 +12,7 @@
 		9EB7AF122AF36DD400516600 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9EB7AF112AF36DD400516600 /* Assets.xcassets */; };
 		9EB7AF152AF36DD400516600 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9EB7AF142AF36DD400516600 /* Preview Assets.xcassets */; };
 		9EB7AF1C2AF36DF200516600 /* starbucksData.json in Resources */ = {isa = PBXBuildFile; fileRef = 9EB7AF1B2AF36DF200516600 /* starbucksData.json */; };
+		CEEBC7532AF3818A002E5ED1 /* BeverageDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEEBC7522AF3818A002E5ED1 /* BeverageDetailView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +23,7 @@
 		9EB7AF142AF36DD400516600 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		9EB7AF1B2AF36DF200516600 /* starbucksData.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = starbucksData.json; sourceTree = "<group>"; };
 		9EB7AF1D2AF371AC00516600 /* ReadME.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = ReadME.md; sourceTree = "<group>"; };
+		CEEBC7522AF3818A002E5ED1 /* BeverageDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeverageDetailView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,6 +58,7 @@
 			children = (
 				9EB7AF0D2AF36DD200516600 /* StarbucksProjectApp.swift */,
 				9EB7AF0F2AF36DD200516600 /* ContentView.swift */,
+				CEEBC7522AF3818A002E5ED1 /* BeverageDetailView.swift */,
 				9EB7AF1B2AF36DF200516600 /* starbucksData.json */,
 				9EB7AF112AF36DD400516600 /* Assets.xcassets */,
 				9EB7AF132AF36DD400516600 /* Preview Content */,
@@ -143,6 +146,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CEEBC7532AF3818A002E5ED1 /* BeverageDetailView.swift in Sources */,
 				9EB7AF102AF36DD200516600 /* ContentView.swift in Sources */,
 				9EB7AF0E2AF36DD200516600 /* StarbucksProjectApp.swift in Sources */,
 			);
