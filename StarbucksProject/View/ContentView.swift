@@ -27,38 +27,71 @@ struct ContentView: View {
                 .padding(.trailing)
             }
             
-            List {
-                Section {
-                    ForEach (0..<beverageStore.beverages.count, id: \.self) { index in
-                        NavigationLink(value: index) {
-                            ListCell(beverage: beverageStore.beverages[index])
+            ZStack {
+                List {
+                    Section {
+                        ForEach (0..<beverageStore.beverages.count, id: \.self) { index in
+                            NavigationLink(value: index) {
+                                ListCell(beverage: beverageStore.beverages[index])
+                            }
                         }
+                        .onMove(perform: moveItems)
+                        .onDelete(perform: deleteItems)
+                    } header: {
+                        Text("메뉴")
+                            .font(.system(size: 20))
                     }
-                    .onMove(perform: moveItems)
-                    .onDelete(perform: deleteItems)
-                } header: {
-                    Text("메뉴")
-                        .font(.system(size: 20))
+                }
+                .navigationDestination(for: Int.self) { index in
+                    BeverageDetailView(selectedBeverage: beverageStore.beverages[index])
+                }
+                .navigationDestination(for: String.self, destination: { i in
+                    BeverageAddView(beverageStore: self.beverageStore, path: $stackPath)
+                })
+                //            .navigationTitle("스타벅스")
+                //            .toolbar {
+                //                ToolbarItem(placement: .topBarTrailing) {
+                //                    EditButton()
+                //                }
+                //                ToolbarItem(placement: .topBarLeading) {
+                //                    NavigationLink(value: "새 음료 추가") {
+                //                        Image(systemName: "plus")
+                //                            .foregroundStyle(.black)
+                //                    }
+                //                }
+                //            }
+                
+                VStack {
+                    Spacer()
+                    HStack {
+                        Image("coffeeIcon")
+                            .resizable()
+                            .aspectRatio(contentMode: .fit)
+                            .frame(width: 35)
+                            .padding(.top)
+                        Image("coffeeIcon")
+                            .resizable()
+                            .aspectRatio(contentMode: .fit)
+                            .frame(width: 35)
+                            .padding(.top)
+                        Image("coffeeIcon")
+                            .resizable()
+                            .aspectRatio(contentMode: .fit)
+                            .frame(width: 35)
+                            .padding(.top)
+                        Image("coffeeIcon")
+                            .resizable()
+                            .aspectRatio(contentMode: .fit)
+                            .frame(width: 35)
+                            .padding(.top)
+                        Image("coffeeIcon")
+                            .resizable()
+                            .aspectRatio(contentMode: .fit)
+                            .frame(width: 35)
+                            .padding(.top)
+                    }
                 }
             }
-            .navigationDestination(for: Int.self) { index in
-                BeverageDetailView(selectedBeverage: beverageStore.beverages[index])
-            }
-            .navigationDestination(for: String.self, destination: { i in
-                BeverageAddView(beverageStore: self.beverageStore, path: $stackPath)
-            })
-//            .navigationTitle("스타벅스")
-//            .toolbar {
-//                ToolbarItem(placement: .topBarTrailing) {
-//                    EditButton()
-//                }
-//                ToolbarItem(placement: .topBarLeading) {
-//                    NavigationLink(value: "새 음료 추가") {
-//                        Image(systemName: "plus")
-//                            .foregroundStyle(.black)
-//                    }
-//                }
-//            }
         }
     }
     
