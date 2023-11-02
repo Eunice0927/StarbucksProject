@@ -13,6 +13,8 @@
 		9EB7AF152AF36DD400516600 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9EB7AF142AF36DD400516600 /* Preview Assets.xcassets */; };
 		9EB7AF1C2AF36DF200516600 /* starbucksData.json in Resources */ = {isa = PBXBuildFile; fileRef = 9EB7AF1B2AF36DF200516600 /* starbucksData.json */; };
 		CEEBC7532AF3818A002E5ED1 /* BeverageDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEEBC7522AF3818A002E5ED1 /* BeverageDetailView.swift */; };
+		CEEBC7552AF38439002E5ED1 /* Beverage.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEEBC7542AF38439002E5ED1 /* Beverage.swift */; };
+		CEEBC7572AF3845E002E5ED1 /* ListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEEBC7562AF3845D002E5ED1 /* ListCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +26,8 @@
 		9EB7AF1B2AF36DF200516600 /* starbucksData.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = starbucksData.json; sourceTree = "<group>"; };
 		9EB7AF1D2AF371AC00516600 /* ReadME.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = ReadME.md; sourceTree = "<group>"; };
 		CEEBC7522AF3818A002E5ED1 /* BeverageDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeverageDetailView.swift; sourceTree = "<group>"; };
+		CEEBC7542AF38439002E5ED1 /* Beverage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Beverage.swift; sourceTree = "<group>"; };
+		CEEBC7562AF3845D002E5ED1 /* ListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -57,8 +61,8 @@
 			isa = PBXGroup;
 			children = (
 				9EB7AF0D2AF36DD200516600 /* StarbucksProjectApp.swift */,
-				9EB7AF0F2AF36DD200516600 /* ContentView.swift */,
-				CEEBC7522AF3818A002E5ED1 /* BeverageDetailView.swift */,
+				CEEBC7582AF38544002E5ED1 /* View */,
+				CEEBC7542AF38439002E5ED1 /* Beverage.swift */,
 				9EB7AF1B2AF36DF200516600 /* starbucksData.json */,
 				9EB7AF112AF36DD400516600 /* Assets.xcassets */,
 				9EB7AF132AF36DD400516600 /* Preview Content */,
@@ -73,6 +77,16 @@
 				9EB7AF142AF36DD400516600 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		CEEBC7582AF38544002E5ED1 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				9EB7AF0F2AF36DD200516600 /* ContentView.swift */,
+				CEEBC7522AF3818A002E5ED1 /* BeverageDetailView.swift */,
+				CEEBC7562AF3845D002E5ED1 /* ListCell.swift */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -148,6 +162,8 @@
 			files = (
 				CEEBC7532AF3818A002E5ED1 /* BeverageDetailView.swift in Sources */,
 				9EB7AF102AF36DD200516600 /* ContentView.swift in Sources */,
+				CEEBC7552AF38439002E5ED1 /* Beverage.swift in Sources */,
+				CEEBC7572AF3845E002E5ED1 /* ListCell.swift in Sources */,
 				9EB7AF0E2AF36DD200516600 /* StarbucksProjectApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
