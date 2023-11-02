@@ -22,17 +22,20 @@ struct BeverageDetailView: View {
                 Text(selectedBeverage.description)
                     .font(.body)
             }
-            Section("알레르기 유발요인") {
-                if selectedBeverage.isAllergicMilk {
-                    Text("우유 🥛")
-                }
-                if selectedBeverage.isAllergicSoyBean {
-                    Text("대두 🫘")
-                }
-                if selectedBeverage.isAllergicWheat {
-                    Text("밀 🌾")
-                }
+            if selectedBeverage.isAllergicMilk == false && selectedBeverage.isAllergicWheat == false && selectedBeverage.isAllergicSoyBean == false {
                 
+            } else {
+                Section("알레르기 유발요인") {
+                    if selectedBeverage.isAllergicMilk {
+                        Text("우유 🥛")
+                    }
+                    if selectedBeverage.isAllergicSoyBean {
+                        Text("대두 🫘")
+                    }
+                    if selectedBeverage.isAllergicWheat {
+                        Text("밀 🌾")
+                    }
+                }
             }
         }
         .navigationTitle(selectedBeverage.name)
@@ -41,6 +44,6 @@ struct BeverageDetailView: View {
 
 #Preview {
     NavigationStack {
-        BeverageDetailView(selectedBeverage: beverageData[0])
+        BeverageDetailView(selectedBeverage: beverageData[1])
     }
 }
