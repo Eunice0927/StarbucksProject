@@ -15,6 +15,7 @@ struct Beverage: Codable, Identifiable {
     var isAllergicSoyBean: Bool
     var isAllergicWheat: Bool
     var imageName: String
+    var imans: String
 }
 
 var beverageData: [Beverage] = loadJson("starbucksData.json")
