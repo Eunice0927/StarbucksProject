@@ -10,40 +10,50 @@ import SwiftUI
 struct BeverageDetailView: View {
     let selectedBeverage: Beverage
     var body: some View {
-        Form {
-            Section("Beverage Details") {
+        VStack {
                 Image(selectedBeverage.imageName)
                     .resizable()
-                    .clipShape(RoundedRectangle(cornerRadius: 12))
-                    .scaledToFit()
-                    .padding()
+                    .ignoresSafeArea()
+                    .frame(minHeight: 330)
+//                    .clipShape(RoundedRectangle(cornerRadius: 12))
+//                    .scaledToFit()
+//                    .padding()
+            HStack {
                 Text(selectedBeverage.name)
-                    .font(.headline)
-                Text(selectedBeverage.description)
-                    .font(.body)
+                    .font(.system(size: 35))
+                    .fontWeight(.heavy)
+                    .padding()
+                Spacer()
             }
-            if selectedBeverage.isAllergicMilk == false && selectedBeverage.isAllergicWheat == false && selectedBeverage.isAllergicSoyBean == false {
-                
-            } else {
-                Section("알레르기 유발요인") {
-                    if selectedBeverage.isAllergicMilk {
-                        Text("우유 🥛")
-                    }
-                    if selectedBeverage.isAllergicSoyBean {
-                        Text("대두 🫘")
-                    }
-                    if selectedBeverage.isAllergicWheat {
-                        Text("밀 🌾")
+            
+            Text(selectedBeverage.description)
+                .font(.body)
+                .foregroundStyle(.gray)
+            
+            List {
+                if selectedBeverage.isAllergicMilk == false && selectedBeverage.isAllergicWheat == false && selectedBeverage.isAllergicSoyBean == false {
+                    
+                } else {
+                    
+                    Section("알레르기 유발요인") {
+                        if selectedBeverage.isAllergicMilk {
+                            Text("우유 🥛")
+                        }
+                        if selectedBeverage.isAllergicSoyBean {
+                            Text("대두 🫘")
+                        }
+                        if selectedBeverage.isAllergicWheat {
+                            Text("밀 🌾")
+                        }
                     }
                 }
             }
         }
-        .navigationTitle(selectedBeverage.name)
     }
 }
 
 #Preview {
     NavigationStack {
-        BeverageDetailView(selectedBeverage: beverageData[1])
+        BeverageDetailView(selectedBeverage: beverageData[0])
     }
 }
