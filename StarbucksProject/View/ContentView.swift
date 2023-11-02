@@ -30,12 +30,13 @@ struct ContentView: View {
             })
             .navigationTitle("스타벅스")
             .toolbar {
-                ToolbarItem(placement: .topBarTrailing) {
-                    EditButton()
-                }
+//                ToolbarItem(placement: .topBarTrailing) {
+//                    EditButton()
+//                }
                 ToolbarItem(placement: .topBarLeading) {
                     NavigationLink(value: "새 음료 추가") {
-                        Text("Add")
+                        Image(systemName: "plus")
+                            .foregroundStyle(.black)
                     }
                 }
             }

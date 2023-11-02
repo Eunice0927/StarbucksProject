@@ -11,13 +11,15 @@ struct ListCell: View {
     var beverage: Beverage
     
     var body: some View {
-        HStack {
+        HStack(spacing: 20) {
             Image(beverage.imageName)
                 .resizable()
+                .clipShape(.circle)
                 .aspectRatio(contentMode: .fit)
-                .frame(width: 100, height: 60)
+                .frame(width: 70)
             Text(beverage.name)
         }
+        .frame(alignment: .leading)
     }
 }
 
