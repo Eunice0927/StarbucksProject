@@ -1,0 +1,48 @@
+[
+    {
+        "id": "aa32jj887hhg55",
+        "name": "바닐라 크림 콜드브루",
+        "description": "콜드 브루에 더해진 바닐라 크림으로 깔끔하면서 달콤한 콜드 브루를 새롭게 즐길 수 있는 음료입니다.",
+        "isAllergicMilk": true,
+        "isAllergicSoyBean": true,
+        "isAllergicWheat": true,
+        "imageName": "VanilaCreamColdBrew"
+    },
+    {
+        "id": "bb32jj887hhg77",
+        "name": "아이스 아메리카노",
+        "description": "진한 에스프레소에 시원한 정수물과 얼음을 더하여 스타벅스의 깔끔하고 강렬한 에스프레소를 가장 부드럽고 시원하게 즐길 수 있는 커피",
+        "isAllergicMilk": false,
+        "isAllergicSoyBean": false,
+        "isAllergicWheat": false,
+        "imageName": "IceAmericano"
+    },
+    {
+        "id": "cc32jj887hhg66",
+        "name": "라떼(Hot)",
+        "description": "풍부하고 진한 에스프레소가 신선한 스팀 밀크를 만나 부드러워진 커피 위에 우유 거품을 살짝 얹은 대표적인 커피 라떼",
+        "isAllergicMilk": true,
+        "isAllergicSoyBean": false,
+        "isAllergicWheat": false,
+        "imageName": "HotCafeLatte"
+    },
+    {
+        "id": "dd32jj887hhg88",
+        "name": "자바칩 프라푸치노",
+        "description": "커피, 모카 소스, 진한 초콜릿 칩이 입안 가득 느껴지는 스타벅스에서만 맛볼 수 있는 프라푸치노",
+        "isAllergicMilk": true,
+        "isAllergicSoyBean": true,
+        "isAllergicWheat": true,
+        "imageName": "JavaChipFrappuccino"
+    },
+    {
+        "id": "ee32jj887hhg99",
+        "name": "카푸치노",
+        "description": "풍부하고 진한 에스프레소에 따뜻한 우유와 벨벳 같은 우유 거품이 1:1 비율로 어우러져 마무리된 커피 음료",
+        "isAllergicMilk": true,
+        "isAllergicSoyBean": false,
+        "isAllergicWheat": false,
+        "imageName": "Cappuccino"
+    }
+    
+]
