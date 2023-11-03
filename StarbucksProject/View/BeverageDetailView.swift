@@ -24,9 +24,11 @@ struct BeverageDetailView: View {
                 Text(selectedBeverage.name)
                     .font(.system(size: 30))
                     .fontWeight(.heavy)
+                    .padding(.horizontal)
                 Text(selectedBeverage.description)
                     .font(.body)
                     .foregroundStyle(.gray)
+                    .padding(.horizontal)
             }
         }
         
@@ -77,6 +79,6 @@ struct BeverageDetailView: View {
 
 #Preview {
     NavigationStack {
-        BeverageDetailView(selectedBeverage: beverageData[0], similarBeverages: beverageData)
+        BeverageDetailView(selectedBeverage: beverageData[4], similarBeverages: beverageData)
     }
 }
