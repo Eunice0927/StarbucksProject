@@ -14,10 +14,12 @@ struct ContentView: View {
     var body: some View {
         NavigationStack(path: $stackPath) {
             HStack {
-                Text("스타벅스")
-                    .font(.system(size: 35))
-                    .fontWeight(.heavy)
+                Image("StarbucksLogo")
+                    .resizable()
+                    .aspectRatio(contentMode: .fit)
+                    .frame(height: 50)
                     .padding(.leading)
+                    .padding(.bottom)
                 Spacer()
                 NavigationLink(value: "새 음료 추가") {
                     Image(systemName: "plus")
@@ -25,6 +27,7 @@ struct ContentView: View {
                 }
                 .font(.system(size: 25))
                 .padding(.trailing)
+                .padding(.bottom)
             }
             
             ZStack {
@@ -34,14 +37,16 @@ struct ContentView: View {
                             NavigationLink(value: index) {
                                 ListCell(beverage: beverageStore.beverages[index])
                             }
+                            .listRowSeparator(.hidden)
                         }
                         .onMove(perform: moveItems)
                         .onDelete(perform: deleteItems)
                     } header: {
-                        Text("메뉴")
+                        Text("음료")
                             .font(.system(size: 20))
                     }
                 }
+                .scrollContentBackground(.hidden)
                 .navigationDestination(for: Int.self) { index in
                     BeverageDetailView(selectedBeverage: beverageStore.beverages[index], similarBeverages: beverageStore.beverages)
                 }
