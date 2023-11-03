@@ -9,26 +9,26 @@ import SwiftUI
 
 struct BeverageDetailView: View {
     let selectedBeverage: Beverage
+    let similarBeverages: [Beverage]
+    
+    var otherBeverages: [Beverage] {
+        return similarBeverages.filter { $0.name != selectedBeverage.name }
+    }
     var body: some View {
         VStack {
-                Image(selectedBeverage.imageName)
-                    .resizable()
-                    .ignoresSafeArea()
-                    .frame(minHeight: 330)
-//                    .clipShape(RoundedRectangle(cornerRadius: 12))
-//                    .scaledToFit()
-//                    .padding()
-            HStack {
+            Image(selectedBeverage.imageName)
+                .resizable()
+                .ignoresSafeArea()
+                .frame(minHeight: 330)
+            VStack(alignment: .leading, spacing: 20) {
                 Text(selectedBeverage.name)
-                    .font(.system(size: 35))
+                    .font(.system(size: 30))
                     .fontWeight(.heavy)
-                    .padding()
-                Spacer()
+                Text(selectedBeverage.description)
+                    .font(.body)
+                    .foregroundStyle(.gray)
             }
-            
-            Text(selectedBeverage.description)
-                .font(.body)
-                .foregroundStyle(.gray)
+        }
             
             List {
                 if selectedBeverage.isAllergicMilk == false && selectedBeverage.isAllergicWheat == false && selectedBeverage.isAllergicSoyBean == false {
@@ -37,23 +37,45 @@ struct BeverageDetailView: View {
                     
                     Section("알레르기 유발요인") {
                         if selectedBeverage.isAllergicMilk {
-                            Text("우유 🥛")
+                            Text("🥛 우유")
                         }
                         if selectedBeverage.isAllergicSoyBean {
-                            Text("대두 🫘")
+                            Text("🫘 대두")
                         }
                         if selectedBeverage.isAllergicWheat {
-                            Text("밀 🌾")
+                            Text("🌾 밀")
                         }
                     }
                 }
-            }
+                
+                Section("비슷한 다른 메뉴") {
+                    ScrollView(.horizontal, showsIndicators: false) {
+                        LazyHGrid(rows: [GridItem(.fixed(150))], spacing: 10) {
+                            ForEach(otherBeverages) { beverage in
+                                VStack(alignment: .center) {
+                                    Image(beverage.imageName)
+                                        .resizable()
+                                        .clipShape(.circle)
+                                        .aspectRatio(contentMode: .fit)
+                                        .frame(height: 70)
+                                    Text(beverage.name)
+                                        .font(.footnote)
+                                        .frame(width: 70, alignment: .center)
+                                    //최대 몇줄까지 표시될 수 있는지 적는거
+                                        .lineLimit(1)
+                                        .minimumScaleFactor(0.5)
+                                }
+                            }
+                        }
+                    }
+                }
         }
+            .background(Color.clear)
     }
 }
 
 #Preview {
     NavigationStack {
-        BeverageDetailView(selectedBeverage: beverageData[0])
+        BeverageDetailView(selectedBeverage: beverageData[0], similarBeverages: beverageData)
     }
 }

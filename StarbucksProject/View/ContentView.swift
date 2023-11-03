@@ -43,7 +43,7 @@ struct ContentView: View {
                     }
                 }
                 .navigationDestination(for: Int.self) { index in
-                    BeverageDetailView(selectedBeverage: beverageStore.beverages[index])
+                    BeverageDetailView(selectedBeverage: beverageStore.beverages[index], similarBeverages: beverageStore.beverages)
                 }
                 .navigationDestination(for: String.self, destination: { i in
                     BeverageAddView(beverageStore: self.beverageStore, path: $stackPath)
