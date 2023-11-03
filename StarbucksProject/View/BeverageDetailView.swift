@@ -29,48 +29,49 @@ struct BeverageDetailView: View {
                     .foregroundStyle(.gray)
             }
         }
-            
-            List {
-                if selectedBeverage.isAllergicMilk == false && selectedBeverage.isAllergicWheat == false && selectedBeverage.isAllergicSoyBean == false {
-                    
-                } else {
-                    
-                    Section("알레르기 유발요인") {
-                        if selectedBeverage.isAllergicMilk {
-                            Text("🥛 우유")
-                        }
-                        if selectedBeverage.isAllergicSoyBean {
-                            Text("🫘 대두")
-                        }
-                        if selectedBeverage.isAllergicWheat {
-                            Text("🌾 밀")
-                        }
+        
+        List {
+            if selectedBeverage.isAllergicMilk == false && selectedBeverage.isAllergicWheat == false && selectedBeverage.isAllergicSoyBean == false {
+                
+            } else {
+                
+                Section("알레르기 유발요인") {
+                    if selectedBeverage.isAllergicMilk {
+                        Text("🥛 우유")
+                    }
+                    if selectedBeverage.isAllergicSoyBean {
+                        Text("🫘 대두")
+                    }
+                    if selectedBeverage.isAllergicWheat {
+                        Text("🌾 밀")
                     }
                 }
-                
-                Section("비슷한 다른 메뉴") {
-                    ScrollView(.horizontal, showsIndicators: false) {
-                        LazyHGrid(rows: [GridItem(.fixed(150))], spacing: 10) {
-                            ForEach(otherBeverages) { beverage in
-                                VStack(alignment: .center) {
-                                    Image(beverage.imageName)
-                                        .resizable()
-                                        .clipShape(.circle)
-                                        .aspectRatio(contentMode: .fit)
-                                        .frame(height: 70)
-                                    Text(beverage.name)
-                                        .font(.footnote)
-                                        .frame(width: 70, alignment: .center)
-                                    //최대 몇줄까지 표시될 수 있는지 적는거
-                                        .lineLimit(1)
-                                        .minimumScaleFactor(0.5)
-                                }
+            }
+            
+            Section("비슷한 다른 메뉴") {
+                ScrollView(.horizontal, showsIndicators: false) {
+                    LazyHStack(alignment: .top, spacing: 10) {
+                        ForEach(otherBeverages) { beverage in
+                            VStack(alignment: .center) {
+                                Image(beverage.imageName)
+                                    .resizable()
+                                    .clipShape(.circle)
+                                    .aspectRatio(contentMode: .fit)
+                                    .frame(height: 70)
+                                
+                                Text(beverage.name)
+                                    .font(.footnote)
+                                    .frame(width: 70, alignment: .top)
+                                    .multilineTextAlignment(.center)
+                                    .minimumScaleFactor(0.5)
                             }
                         }
                     }
+                    .padding(.top)
                 }
+            }
         }
-            .background(Color.clear)
+        .background(Color.clear)
     }
 }
 
