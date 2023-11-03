@@ -56,7 +56,7 @@ struct BeverageAddView: View {
             isAllergicMilk: isAllergicMilk,
             isAllergicSoyBean: isAllergicSoyBean,
             isAllergicWheat: isAllergicWheat,
-            imageName: "tesla_model_3")
+            imageName: "IceAmericano")
         
         beverageStore.beverages.append(newBeverage)
         path.removeLast()
